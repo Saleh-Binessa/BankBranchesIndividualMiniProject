@@ -1,5 +1,6 @@
 ﻿using BankBranchesIndividualMiniProject.Models;
 using BankBranchesIndividualMiniProject.Models.DB;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -65,10 +66,15 @@ namespace BankBranchesIndividualMiniProject.Controllers
             return View(bankBranch);
         }
 
-        [HttpGet]
-        public IActionResult EditBranch(int id)
+        [HttpPatch("{id}")]
+        public IActionResult EditBranch(int id, NewBranchForm edit)
         {
-            return View(new EditBranch { BranchId = id });
+            var bank = _context.BankBranches.Find(id);
+            bank.Name = edit.Name;
+            bank.BranchManager = edit.BranchManager;
+            bank.Location = edit.Location;
+            _context.SaveChanges();
+            return RedirectToAction("BranchesDetails", new { id = bank.BranchId });
         }
 
         [HttpPost]
