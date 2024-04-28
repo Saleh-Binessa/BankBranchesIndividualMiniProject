@@ -1,0 +1,24 @@
+﻿@model AddEmployeeForm
+@using (Html.BeginForm("AddEmployee", "Bank", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.BranchId)
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Civil ID</label>
+        @Html.TextBoxFor(m => m.CivilId, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Position</label>
+        @Html.TextBoxFor(m => m.Position, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+<a href="@Url.Action("ShowBranchesList", "Bank")" class="btn btn-info">Back to List</a>

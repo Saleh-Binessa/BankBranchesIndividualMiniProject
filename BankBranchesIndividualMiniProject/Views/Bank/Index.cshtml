@@ -1,0 +1,27 @@
+﻿@model BankDashboardViewModel
+@using Microsoft.AspNetCore.Mvc.Localization
+
+@inject IViewLocalizer Localizer
+<h1>@Localizer["WelcomeMessage"]</h1>
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Branches</h5>
+                <p class="card-text">@Model.TotalBranches</p>
+            </div>
+            <a href="@Url.Action("ShowBranchesList", "Bank")" class="btn btn-info">View Branches</a>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Employee</h5>
+                    <p class="card-text">@Model.TotalEmployees</p>
+                </div>
+                <a href="@Url.Action("Employees", "Bank")" class="btn btn-info">View Employees</a>
+
+            </div>
+        </div>
+    </div>
+ </div>

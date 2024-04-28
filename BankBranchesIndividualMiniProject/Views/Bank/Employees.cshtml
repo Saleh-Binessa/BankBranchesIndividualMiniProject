@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BankBranchesIndividualMiniProject.Models.Employee>
+
+<h1>KFH Employees</h1>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Employee ID </th>
+                <th>BranchId</th>
+                <th>Employee Name</th>
+
+                <th>More Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.WorkplaceId
+                        </td>
+                    <td>@employee.Name</td>
+                    <td>
+                        <a href="@Url.Action("EmployeesDetails", "Bank", new { id = employee.Id })" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

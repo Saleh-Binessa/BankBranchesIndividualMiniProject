@@ -1,0 +1,32 @@
+﻿ @model IEnumerable<BankBranchesIndividualMiniProject.Models.BankBranch>
+
+<h1>KFH Branches</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Branch Name</th>
+                <th>Location</th>
+                <th>Branch Manager</th>
+                <th>Number of Employees</th>
+                <th>More Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var bankBranch in Model)
+            {
+                <tr>
+                    <td>@bankBranch.Name</td>
+                    <td><a href="@bankBranch.Location" target="_blank">View Map</a></td>
+                    <td>@bankBranch.BranchManager</td>
+                    <td>@bankBranch.EmployeeCount</td>
+                    <td>
+                        <a href="@Url.Action("BranchesDetails", "Bank", new { id = bankBranch.BranchId })" class="btn btn-info">Details</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a href="@Url.Action("NewBranchForm", "Bank")" class="btn btn-primary">Add Branch</a>

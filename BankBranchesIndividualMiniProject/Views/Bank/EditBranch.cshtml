@@ -1,0 +1,7 @@
+﻿@model EditBranch
+@using (Html.BeginForm("EditBranch", "Bank", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <button class="btn btn-primary" type="submit">Save</button>
+
+}

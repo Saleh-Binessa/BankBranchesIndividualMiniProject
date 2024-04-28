@@ -1,0 +1,45 @@
+﻿<h2>Branch Details:</h2>
+
+<div class="card">
+        <div>
+            <a href="@Url.Action("EditBranch", "Bank")" class="btn btn-info">Edit</a>
+    </div>
+    <div>
+        <a href="@Url.Action("AddEmployee", "Bank", new { branchId = @Model.BranchId })" class="btn btn-primary">Add Employee</a>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-2">
+                Branch ID
+            </dt>
+            <dd class="col-sm-10">
+                @Model.BranchId
+            </dd>
+            <dt class="col-sm-2">
+                Branch Name
+            </dt>
+            <dd class="col-sm-10">
+                @Model.Name
+            </dd>
+            <dt class="col-sm-2">
+                Location
+            </dt>
+            <dd class="col-sm-10">
+                <a href="@Model.Location" target="_blank">@Model.Location</a>
+            </dd>
+            <dt class="col-sm-2">
+                Branch Manager
+            </dt>
+            <dd class="col-sm-10">
+                @Model.BranchManager
+            </dd>
+            <dt class="col-sm-2">
+                Number of Employees
+            </dt>
+            <dd class="col-sm-10">
+                @Model.EmployeeCount
+            </dd>
+        </dl>
+    </div>
+</div>
+<a href="@Url.Action("ShowBranchesList", "Bank")" class="btn btn-info">Back to List</a>
